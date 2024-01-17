@@ -4,12 +4,14 @@ import br.com.blue.projeto.DTO.UsuarioDTO;
 import br.com.blue.projeto.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/usuario")
+@CrossOrigin
 public class UsuarioController {
 
     @Autowired
@@ -21,15 +23,18 @@ public class UsuarioController {
     }
 
     @PostMapping
+    @Transactional
     public void inserir(@RequestBody UsuarioDTO usuario){
         usuarioService.inserir(usuario);
     }
 
     @PutMapping
+    @Transactional
     public UsuarioDTO alterar(@RequestBody UsuarioDTO usuario){
         return usuarioService.alterar(usuario);
     }
     @DeleteMapping("/{id}")
+    @Transactional
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
         usuarioService.excluir(id);
         return ResponseEntity.ok().build();

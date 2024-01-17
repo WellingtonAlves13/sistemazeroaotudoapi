@@ -15,8 +15,7 @@ import java.util.List;
 public class PerfilController {
 
     @Autowired
-    PerfilService perfilServiceService;
-
+    private PerfilService perfilServiceService;
     @GetMapping
     public List<PerfilDTO> listarTodos(){
         return perfilServiceService.listarTodos();

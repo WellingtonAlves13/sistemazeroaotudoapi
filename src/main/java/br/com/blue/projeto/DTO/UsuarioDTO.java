@@ -1,10 +1,6 @@
 package br.com.blue.projeto.DTO;
 
 import br.com.blue.projeto.entity.UsuarioEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import org.springframework.beans.BeanUtils;
 
 public class UsuarioDTO {
